@@ -1,6 +1,7 @@
 package com.mar.game_list.dtos;
 
 import com.mar.game_list.entities.Game;
+import com.mar.game_list.projections.GameMinProjection;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -21,6 +22,14 @@ public class GameMinDto implements Serializable {
         year = game.getYear();
         imgUrl = game.getImgUrl();
         shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDto(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
